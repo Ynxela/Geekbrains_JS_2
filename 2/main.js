@@ -54,12 +54,10 @@ class GoodsList {
     
     getTotalGoodsPrice() {
         let totalPrice = 0;
-        console.log(this.goods[0].price);
         for (let good in this.goods) {
-            this.totalPrice += this.goods[good].price;
-            console.log(this.totalPrice);
+            totalPrice += this.goods[good].price;
         }
-//        console.log(this.totalPrice);
+        console.log(totalPrice);
     }
 }
 

@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="green">Click me</div>
+<div class="box"></div>
+<div class="box"></div>
+<div class="box"></div>
+<div class="box"></div>
+<div class="box"></div>
+<div class="box"></div>
+<div class="box"></div>
+<script>
+
+    // let, const
+
+    // ES5
+
+    var name5 = 'John';
+    var age5 = 26;
+    name5 = 'Sam';
+    console.log(name5);
+
+    // ES6
+    const name = 'John';
+    let age = 26;
+    // name = 'Sam';
+    // console.log(name);
+
+    // ES5
+    function passTest(result){
+        if (result){
+            var firstName = 'John';
+            var yearOfBirth = 1990
+        }
+        console.log(firstName + ' рожденный в ' + yearOfBirth + ' сдал тест');
+    }
+    passTest(true);
+
+    // ES6
+    function passTest(result){
+        let firstName;
+        const yearOfBirth = 1990;
+        if (result){
+            firstName = 'John';
+        }
+        console.log(firstName + ' рожденный в ' + yearOfBirth + ' сдал тест');
+    }
+    passTest(true);
+
+
+    // ES5
+
+    // var i = 23;
+    // for (var i = 0; i < 5; i++){
+    //     console.log(i);
+    // }
+    // console.log(i);
+
+    // ES6
+
+    let i = 23;
+    for (let i = 0; i < 5; i++){
+        console.log(i);
+    }
+    console.log(i);
+
+    // Template literals
+
+    let firstName = 'John';
+    let lastName = 'Smith';
+    const yearOfBirth = 1990;
+
+    function calcAge(year){
+        return 2019 - year;
+    }
+
+    // ES5
+    console.log('Меня зовут ' + firstName + ' ' + lastName + ', я родился в ' + yearOfBirth + '. Мне ' + calcAge(yearOfBirth) + 'лет');
+    // ES6
+    console.log(`Меня зовут ${firstName} ${lastName}, я родился в ${yearOfBirth}. Мне ${calcAge(yearOfBirth)} лет`)
+
+    const str = `${firstName} ${lastName}`;
+    console.log(str);
+    console.log(str.startsWith('Joh'));
+    console.log(str.endsWith('tr'));
+    console.log(str.includes('oh'));
+    console.log(`${str} `.repeat(5));
+
+    // Arrow functions
+
+    //ES6
+    const calcAge6 = () => {
+        return 6
+    };
+    console.log(calcAge6());
+
+    const calcAge7 = x => {
+        const z = 10;
+        return 6 - x + z
+    };
+    console.log(calcAge7(3));
+
+    const calcAge8 = (x, y=20) => 6 - x + y;
+    console.log(calcAge8(3, 5));
+
+    // es5
+    let box = {
+        color: 'green',
+        position: 1,
+        clickMe: function() {
+            document.querySelector('.green').addEventListener('click', () => {
+                let str = `This is box number ${this.position} and it is ${this.color}`;
+                console.log(str);
+            })
+        }
+    };
+    box.clickMe();
+
+    // Деструктуризация
+
+    // ES5
+    var arr5 = ['John', 26];
+    var name55 = arr5[0];
+    var age55 = arr5[1];
+
+    // ES6
+    let arr6 = ['John', 26];
+    let [name6, age6] = arr6;
+    console.log(name6);
+    console.log(age6);
+
+    let obj = {
+        firstName6: 'John',
+        lastName6: 'Doe',
+        colors: ['black', 'white']
+    };
+    let {firstName6:c, lastName6, colors: [a, b]} = obj;
+    console.log(lastName6);
+    console.log(c);
+    console.log(a);
+    console.log(b);
+
+    let ret = year => {
+        const age = 2019 - year;
+        return [age, 65 - age];
+    };
+
+    console.log(ret(1990));
+    let [curAge, retirement] = ret(1991);
+    console.log(curAge);
+    console.log(retirement);
+
+    // Spread operator
+
+    let calcArgs = (a, b, c, d) => a+b+c+d;
+    const arrNums = [2,5,8,12];
+    //ES5
+    let sum1 = calcArgs.apply(null, arrNums);
+    console.log(sum1);
+
+    let sum2 = calcArgs(...arrNums);
+    console.log(sum2);
+
+    let names1 = ['Ann', 'Mark', 'John'];
+    let names2 = ['Bob', 'Tom', 'Mary'];
+
+    let bigNames = [...names1, 'Lilly', ...names2];
+    console.log(bigNames);
+
+    let boxes = document.querySelectorAll('.box');
+    let boxesArr = Array.from(boxes);
+    let boxesArr2 = [...boxes];
+    console.log(boxes);
+    console.log(boxesArr);
+    console.log(boxesArr2);
+
+    // Rest param
+
+    //ES5
+    function isFullAge5(limit){
+        console.log(arguments);
+        let argsArr = Array.prototype.slice.call(arguments, 1);
+        console.log(argsArr);
+
+    }
+    isFullAge5(21, 1900, 2010, 2017);
+
+    let isFullAge6 = (limit, ...years) => {
+        console.log(years);
+        years.forEach(el => console.log((2019 - el) >= limit))
+    };
+    isFullAge6(1900, 2010, 2017, 2000, 1800);
+
+    // Maps
+
+    let question = new Map();
+    question.set('question', 'Какой стандарт JS сейчас используется в основном?')
+            .set(1, 'ES5')
+            .set(2, 'ES3')
+            .set(3, 'ES7')
+            .set(4, 'ES6')
+            .set('correct', 4)
+            .set(true, 'Совершенно верно')
+            .set(false, 'Ошибка');
+
+    console.log(question.get('question'));
+    // console.log(question.get(true));
+    // if (question.has(4)){
+    //     console.log('Есть такой ключ');
+    //     question.delete(4);
+    // }
+    // question.clear();
+
+    // question.forEach((value, key) => {
+    //    console.log(`Ключ ${key} соответствует значению ${value}`);
+    // });
+    // question.keys(); - только ключи
+    // question.values(); - только значения
+    for (let [key, value] of question.entries()){
+        if (typeof(key) === 'number'){
+            console.log(`Ответ ${key}: ${value}`);
+        }
+    }
+
+    let userAnswer = +prompt('Введите ответ');
+    console.log(question.get(userAnswer === question.get('correct')));
+    console.log(question);
+    console.log(question.size);
+
+
+    // Sets
+
+    let set = new Set();
+
+    let user1 = {name: 'John'};
+    let user2 = {name: 'Ann'};
+    let user3 = {name: 'Bob'};
+
+    set.add(user1);
+    set.add(user2);
+    set.add(user1);
+    set.add(user3);
+    set.add(user2);
+    set.add(user1);
+    set.add(user3);
+
+    set.delete(user1);
+    console.log(set.has(user3));
+    set.clear();
+
+    console.log(set);
+
+</script>
+</body>
+</html>

@@ -1,0 +1,113 @@
+h3 {
+	text-transform: uppercase;
+	text-align: center;
+	color: #323232;
+}
+
+p {
+	text-align: center;
+	color: gray;
+}
+
+.main-container {
+	min-width: 640px;
+	width: 72%;
+	margin: auto;
+}
+
+header {
+	position: relative;
+	background-color: #ccc;
+	min-height: 60px;
+	width: 100%;
+	border-radius: 60px 12px 0 0;
+}
+
+.buy-btn, .btn-cart {
+	margin: 15px 10px;
+	position: absolute;
+	background-color: #57c5ff;
+	height: 30px;
+	border-radius: 8px;
+	border: none;
+	color: white;
+	transition: 0.4s ease;
+	right: 0;
+}
+
+.buy-btn {
+    bottom: 0;
+}
+
+.buy-btn:hover, .btn-cart:hover {
+	background-color: #8ad7ff;
+	color: white;
+	transition: 0.4s ease;
+	cursor: pointer;
+}
+
+.btn-cart:active {
+	top: 1px;
+}
+
+.buy-btn:active {
+    transition: 0s;
+    bottom: -2px;
+}
+
+main {
+	background-color: #eee;
+	border-radius: 0 0 12px 12px;
+}
+
+.goods-list {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-content: center;
+	padding: 30px 10px;
+}
+
+.goods-item {
+    position: relative;
+	display: inline-block;
+	align-content: center;
+	min-width: 160px;
+	height: 180px;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	background-color: #fff;
+	margin: 16px;
+	padding: 10px;
+	transition: 0.4s;
+}
+
+.goods-item h3 {
+	transition: 0.4s;
+}
+
+.goods-item:hover {
+	border: 1px solid #ccc;
+	transition: 0.4s;
+	box-shadow: 0px 6px 24px #ddd;
+	min-width: 164px;
+	height: 184px;
+	margin: 14px;
+	cursor: pointer;
+}
+
+.goods-item:hover h3{
+	color: #57c5ff;
+	transition: 0.4s;
+}
+
+/*
+.buy-btn {
+	margin: 15px 10px;
+	background-color: #57c5ff;
+	height: 30px;
+	border-radius: 8px;
+	border: none;
+	color: white;
+	transition: 0.4s ease;
+}*/

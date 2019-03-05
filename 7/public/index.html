@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Интернет магазин</title>
+    <link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="main-container" id="main-container">
+
+        <header>
+
+            <div class="search-and-cart">
+                <div class="cart">
+                    <filter-el></filter-el>
+                    <cart ref="cart"></cart>
+                </div>
+
+            </div>
+
+        </header>
+
+        <main>
+
+            <div class="goods-list">
+                <products ref="products"></products>
+            </div>
+
+
+        </main>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+    <script src="js/ProductComponents.js"></script>
+    <script src="js/CartComponents.js"></script>
+    <script src="js/FilterComp.js"></script>
+    <script src="js/ErrComp.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
